@@ -1,0 +1,22 @@
+body {
+    background-color: lightblue;
+    padding: 5px;
+    margin: 10px;
+    border: solid;
+    border-color: red;
+  }
+  
+  /* Estilo para las etiquetas de tipo h1 */
+  h1 {
+    color:black;
+  }
+  
+  /* Estilo para los párrafos */
+  p {
+    margin: 10px;
+    padding:14px;
+    border:solid;
+    border-color: blue;
+    text-align: center; 
+  }
+  
