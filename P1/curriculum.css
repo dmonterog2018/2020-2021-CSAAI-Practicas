@@ -1,3 +1,16 @@
+@font-face
+{
+   font-family: "SEASRN__";
+   src: url("SEASRN__.ttf");
+}
+
+@font-face
+{
+   font-family: "Sansation-Bold";
+   src: url("Sansation-Bold.ttf");
+}
+
+
 body {
 margin-top: 1cm;
 background-image: url('alpine.jpg');
@@ -5,17 +18,19 @@ background-position-x: 0cm;
     
 }
 
-h1 {text-align: center;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 20px;
-  padding: 5px;
-  margin: 10px;
-  border: solid;
+h1 {
+  text-align: center;
+  font-family: 'SEASRN__';
+  font-size: 35px;
+  padding: 3px;
+  margin: 5px;
+  border: double;
+  border-width: 0.2cm;
   border-color: blue;
   border-radius: 20px;
   color: rgb(11, 14, 14);
 }
-img {
+.alonso {
   width: 15%;
   margin-left: 0.3cm;
   border: solid;
@@ -26,16 +41,46 @@ img {
 
 h2 {
   text-align: left;
+  font-family: 'SEASRN__';
   font-size: 20px;
   margin-left: 2cm;
-  border-bottom: yellow 8px solid;
-  width: 3.85cm;
+  border-bottom: yellow 8px groove;
+  width: 5.70cm;
 
 }
 
 li {
   text-align: left;
   list-style-image: url("neumatico.png");
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: 'Sansation-Bold';
   font-size: 16px;
+}
+h3 {
+  text-align: left;
+  font-family: 'SEASRN__';
+  font-size: 20px;
+  margin-left: 2cm;
+  border-bottom: yellow 8px groove;
+  color: darkgoldenrod;
+  width: 4cm;
+
+}
+p{
+  font-family: 'Sansation-Bold';
+  font-size: 16px;
+}
+.iconos {
+  width: 20px;
+  margin-left: 0.3cm;
+  color: aqua;
+  margin: 1px;
+  
+  
+}
+p {
+  font-family: 'Sansation-Bold';
+  color: aqua;
+  font-size: 18px;
+  text-align: justify;
+  
 }
