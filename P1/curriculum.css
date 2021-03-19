@@ -42,13 +42,18 @@ h1 {
 
 } 
 
-textoderecha {
+textocentro {
   float: left;
-  width: 65%;
+  width: 30%;
   text-align: justify;
   
 }
 
+textoderecha {
+  float: left;
+  width: 40%;
+  text-align: justify;
+}
 h2 {
 
   font-family: 'SEASRN__';
@@ -101,12 +106,13 @@ h3 {
 
 
 h4 {
-  text-align: left;
+  text-align: center;
   font-family: 'SEASRN__';
   font-size: 20px;
   border-bottom: yellow 8px groove;
-  color: darkgoldenrod;
-
+  color: aliceblue;
+  margin-bottom: 0.7cm;
+  margin-top: 0.4cm;
 }
 
 .estudios{
@@ -114,5 +120,53 @@ h4 {
   font-family: 'Sansation-Bold';
   font-size: 20px;
   color: aliceblue;
-  
+
+}
+
+h5 {
+  text-align: center;
+  font-family: 'SEASRN__';
+  font-size: 20px;
+  border-bottom: yellow 8px groove;
+  color: aliceblue;
+  margin-bottom: 0.7cm;
+  margin-top: 0.4cm;
+}
+
+textoderecha2 {
+  float: right;
+  width: 50%;
+  text-align: justify;
+}
+
+textoizquierda {
+  float: left;
+  width: 50%;
+  text-align: justify;
+}
+.experiencia {
+  margin-left: 1.3cm;
+  line-height: 0.8cm;
+  list-style-image: url("neumatico.png");
+  font-family: 'Sansation-Bold';
+  font-size: 16px;
+  color: aliceblue;
+}
+
+.formacion {
+  line-height: 0.8cm;
+  list-style-image: url("neumatico.png");
+  font-family: 'Sansation-Bold';
+  font-size: 16px;
+  color: aliceblue;
+}
+
+h6 {
+  text-align: center;
+  font-family: 'SEASRN__';
+  font-size: 20px;
+  border-bottom: yellow 8px groove;
+  color: aliceblue;
+  margin-bottom: 0.7cm;
+  margin-top: 0.4cm;
 }
