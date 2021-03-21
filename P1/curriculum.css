@@ -71,7 +71,7 @@ ul {
   line-height: 0.8cm;
   list-style-image: url("neumatico.png");
   font-family: 'Sansation-Bold';
-  font-size: 16px;
+  font-size: 18px;
   color: aliceblue;
 
 }
@@ -118,7 +118,7 @@ h4 {
 .estudios{
 
   font-family: 'Sansation-Bold';
-  font-size: 20px;
+  font-size: 18px;
   color: aliceblue;
 
 }
@@ -159,6 +159,7 @@ textoizquierda {
   font-family: 'Sansation-Bold';
   font-size: 16px;
   color: aliceblue;
+
 }
 
 h6 {
