@@ -6,24 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALCULADORA</title>
     <link rel="stylesheet" href="calc.css">
+    <script src="calc.js" defer></script>
   </head>
+  <body>
   <p id="display">0</p>
-    <button type="button" value="1" id="1">1</button>
-    <button type="button" value="2" id="2">2</button>
-    <button type="button" value="3" id="3">3</button>
-    <button type="button" value="4" id="4">4</button>
-    <button type="button" value="5" id="5">5</button>
-    <button type="button" value="6" id="6">6</button>
-    <button type="button" value="7" id="7">7</button>
-    <button type="button" value="8" id="8">8</button>
-    <button type="button" value="9" id="9">9</button>
-    <button type="button" value="0" id="0">0</button>
+
+  <div>
+    <button type="button" value="1" id="1" class="digito">1</button>
+    <button type="button" value="2" id="2" class="digito">2</button>
+    <button type="button" value="3" id="3" class="digito">3</button>
+    <button type="button" value="4" id="4" class="digito">4</button>
+  </div> 
+  <div>
+    <button type="button" value="5" id="5" class="digito">5</button>
+    <button type="button" value="6" id="6" class="digito">6</button>
+    <button type="button" value="7" id="7" class="digito">7</button>
+    <button type="button" value="8" id="8" class="digito">8</button>
+  </div>
+  <div>
+    <button type="button" value="9" id="9" class="digito">9</button>
+    <button type="button" value="0" id="0" class="digito">0</button>
     <button type="button" value="+" class="operacion">+</button>
     <button type="button" value="-" class="operacion">-</button>
+  </div>
+  <div>
     <button type="button" value="*" class="operacion">x</button>
     <button type="button" value="/" class="operacion">/</button>
-    <button type="button" value="" class="AC">AC</button>
-    <button type="button" value="=" class="result">=</button>
-
-  <body>
+    <button type="button" value="" id="reset" class="AC">AC</button>
+    <button type="button" value="=" id="resultado" class="result">=</button>
+  </div>
   </body>

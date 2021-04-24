@@ -1,16 +1,12 @@
 body {
     margin-top: 1cm;
-    background-image: url('calcua.jpg');
     background-position-x: 0cm;
-        
 }
 
-
-#display {
-    text-align: center;
-
-
+p {
+    text-align: left;
 }
+
 
 .digito {
     text-align: center;
