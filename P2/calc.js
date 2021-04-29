@@ -28,8 +28,7 @@ const ESTADO = {
     INIT: 0,
     OP1: 1,
     OPERATION: 2,
-    OP2_INIT: 3,
-    OP2: 4,
+    OP2: 3,
 }
 
 // ESTADO INICIAL DE LA CALCULADORA
@@ -43,20 +42,20 @@ function recibido(boton){ //Funcion de los digitos
         display.innerHTML += boton;  // Sumamos el digito al display para poder generasr numero mayores a 1 decima
     }else if (estado == ESTADO.OPERATION) { // Si detectamos el estado operacion , añadimos el digito despues del operador
         display.innerHTML += boton;
-        estado = ESTADO.OP2_INIT;
-    }else if (estado == ESTADO.OP2_INIT) {
-        display.innerHTML += boton;
         estado = ESTADO.OP2;
-    }else if (estado == ESTADO.OP2) {
+    }else if (estado == ESTADO.OP2) { // Nos permite añadir un numero mas grande como segundo operando
         display.innerHTML += boton;
     }
 }
 
 
 function operadores(operaciones) { //Funcion de las operaciones
-    if (estado == ESTADO.OP1) {
+    if (estado == ESTADO.OP1) { // Si estamos en el estado OP1, ponemos el operando.
         display.innerHTML += operaciones;
-        estado = ESTADO.OPERATION;
+        estado = ESTADO.OPERATION; // Pasamos a estado de operacion
+        console.log("Detectamos operador");
+    }else if(estado == ESTADO.OP2){ // Si se pulsa un segundo operador imprimimos el mensaje por pantalla
+        console.log("No se pueden realizar dos operaciones a la vez."); 
     }
 }
 
@@ -70,11 +69,11 @@ function operadores(operaciones) { //Funcion de las operaciones
 
 resultado.onclick = () => {
 console.log("Imprime resultado");
-if (estado = ESTADO.OP2_INIT || estado == ESTADO.OP2) {
+if (estado == ESTADO.OP2) {
     display.innerHTML = eval(display.innerHTML);
     estado = ESTADO.OP1;
 }
-// Falta funcion resultado
+
 }
 // Cuando se pulse el boton AC el valor del display volverá a 0
 reset.onclick = () => {
@@ -87,7 +86,7 @@ borrar.onclick = () => {
     display.innerHTML = display.innerHTML.slice(0, -1); // Borramos de display el ultimo dijito introducido.
 }
 
-raiz.onclick = () => {
+raiz.onclick = () => { // Detectamos el click en la raiz
     console.log("raiz");
-    display.innerHTML = Math.sqrt(display.innerHTML);
+    display.innerHTML = Math.sqrt(display.innerHTML); // Realizamos la raiz del numero que se encuentra en el display
 }
