@@ -59,21 +59,12 @@ function operadores(operaciones) { //Funcion de las operaciones
     }
 }
 
-
-
-
-
-
-
-
-
 resultado.onclick = () => {
 console.log("Imprime resultado");
 if (estado == ESTADO.OP2) {
     display.innerHTML = eval(display.innerHTML);
     estado = ESTADO.OP1;
 }
-
 }
 // Cuando se pulse el boton AC el valor del display volverá a 0
 reset.onclick = () => {
@@ -83,7 +74,12 @@ reset.onclick = () => {
 // Detectamos el click del borrar
 borrar.onclick = () => {
     console.log("Borrando");
-    display.innerHTML = display.innerHTML.slice(0, -1); // Borramos de display el ultimo dijito introducido.
+    if (estado == ESTADO.OP2 || estado == ESTADO.OPERATION){ // Si estamos en el estado OP2 o en estado OPERACION, borramos y volvemos al estado OP1
+        display.innerHTML = display.innerHTML.slice(0, -1);
+        estado = ESTADO.OP1;
+    } else if (estado == ESTADO.OP1 ){ // SI estamos en el estado OP1, simplemente borramos los digitos
+        display.innerHTML = display.innerHTML.slice(0, -1); // Borramos de display el ultimo digito introducido.
+    }
 }
 
 raiz.onclick = () => { // Detectamos el click en la raiz
