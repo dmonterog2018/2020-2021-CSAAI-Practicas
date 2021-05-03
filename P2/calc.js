@@ -8,6 +8,7 @@ reset = document.getElementById("reset")
 resultado = document.getElementById("resultado")
 borrar = document.getElementById("del")
 raiz = document.getElementById("raizcuadrada")
+sumatorio = document.getElementById("ans")
 
 // Vamos a leer en primer lugar los digitos 
 for (i=0; i<boton.length; i++){ // Comparamaos las longitudes para que vaya leyendo los diferentes digitos
@@ -61,15 +62,18 @@ function operadores(operaciones) { //Funcion de las operaciones
 
 resultado.onclick = () => {
 console.log("Imprime resultado");
+resul = 0;
 if (estado == ESTADO.OP2) {
     display.innerHTML = eval(display.innerHTML);
     estado = ESTADO.OP1;
+    resul = display.innerHTML; // Guardamos el rsultado del display el una variable y volvemos al OP1
 }
 }
 // Cuando se pulse el boton AC el valor del display volverá a 0
 reset.onclick = () => {
     console.log("AC");
     display.innerHTML = 0; // Imprimimos por el display el valor 0
+    estado = ESTADO.OP1; // Como reseteamos volvemos al estado inicial
 }
 // Detectamos el click del borrar
 borrar.onclick = () => {
@@ -85,4 +89,10 @@ borrar.onclick = () => {
 raiz.onclick = () => { // Detectamos el click en la raiz
     console.log("raiz");
     display.innerHTML = Math.sqrt(display.innerHTML); // Realizamos la raiz del numero que se encuentra en el display
+}
+
+sumatorio.onclick = () => { // Detectamos el click en ans
+    console.log("log");
+    display.innerHTML = resul; //Igualamos el display a la variable resul
+    estado = ESTADO.OP1; // Volvemos al operando 1
 }

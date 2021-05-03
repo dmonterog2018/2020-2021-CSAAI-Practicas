@@ -1,13 +1,59 @@
+@font-face {
+font-family: "Lemon Friday";
+src: url(LemonFriday.ttf);
+
+}
+
 body {
     margin-top: 1cm;
     background-position-x: 0cm;
+    text-align: center;
+    background-size: fixed;
+    font-family: "Lemon Friday";
+    font-size: 20px;
+    background-image: url("calcua.jpg") ;
 }
 
 p {
-    text-align: left;
+    border: solid;
+    border-color: red;
+    padding: 20px;
+    margin: 5px;
+    background-color: black;
 }
+.division {
+    text-align: center;
+    margin-top: 7cm;
+    font-family: "Lemon Friday";
 
+}
 
 .digito {
     text-align: center;
+    width: 80px;
+    padding: 10px;
+    border: solid;
+    border-color:  black;
+    margin: 5px;
+    font-family: "Lemon Friday";
+    font-size: 20px;
+}
+
+.operacion {
+    text-align: center;
+    width: 80px;
+    padding: 10px;
+    border: solid;
+    border-color:  black;
+    margin: 5px;
+    font-family: "Lemon Friday";
+    font-size: 20px;
+}
+
+#display {
+    text-align: center;
+    width: 325px;
+    color: chartreuse;
+    margin-left: 20.3cm; 
+    margin-bottom: 0.6cm;
 }
