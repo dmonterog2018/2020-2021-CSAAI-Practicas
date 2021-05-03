@@ -73,7 +73,7 @@ if (estado == ESTADO.OP2) {
 reset.onclick = () => {
     console.log("AC");
     display.innerHTML = 0; // Imprimimos por el display el valor 0
-    estado = ESTADO.OP1; // Como reseteamos volvemos al estado inicial
+    estado = ESTADO.INIT; // Como reseteamos volvemos al estado inicial
 }
 // Detectamos el click del borrar
 borrar.onclick = () => {
