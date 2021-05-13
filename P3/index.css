@@ -1,0 +1,16 @@
+body {
+    background-image: url("fondo3.gif") ;
+}
+
+
+
+#canvas {
+    background-color: #0a0909;
+    border: solid;
+    border-color: red;
+    border-width: 10px;
+    margin: 5px;
+    margin-left: 17.5cm;
+    margin-top: 5cm;
+    }
+
