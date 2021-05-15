@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title>Manipulación de imagenes</title>
+</head>
+<body>
+    <div class="div1">
+        <p id="parrafo1">Imagen original 1</p>
+        <img src="imagen1.jpg" id="imagen1">
+        <br>
+        <p id = "parrafo2">Imagen original 2</p>    
+        <img src="imagen2.jpg" id="imagen2">
+        <br>
+    </div>
+    <div class="div2">
+        <p id="parrafo3">Imagen manipulada</p>
+        <canvas id="canvas"></canvas>
+        <br>
+        <br>
+        <input type="range" id="r" min="0" max="255" value="255" >R<br>
+        <a id="rvalue">00</a>
+        <input type="range" id="g" min="0" max="255" value="255" >G<br>
+        <a id="gvalue">00</a>
+        <input type="range" id="b" min="0" max="255" value="255" >B<br>
+        <a id="bvalue">00</a>
+        <br>
+        <button id="gris">Grises</button>
+    </div>
+
+</body>
+</html>
