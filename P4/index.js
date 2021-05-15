@@ -2,7 +2,7 @@ console.log("Ejecutando JS....")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img = document.getElementById('imagen1')
+var img = document.getElementById('imagen1');
 const ctx = canvas.getContext('2d');
 const r = document.getElementById('r');
 const g = document.getElementById('g');
@@ -11,7 +11,10 @@ const r_value = document.getElementById('rvalue');
 const g_value = document.getElementById('gvalue');
 const b_value = document.getElementById('bvalue');
 const gris = document.getElementById('gris');
+const color = document.getElementById('color');
 
+const botonimagen1 = document.getElementById('botonimagen1');
+const botonimagen2 = document.getElementById('botonimagen2');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -30,6 +33,19 @@ img.onload = function () {
 
 };
 
+botonimagen1.onclick = () => {
+    img = document.getElementById('imagen1');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0,0);
+}
+
+botonimagen2.onclick = () => {
+    img = document.getElementById('imagen2');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0,0);
+}
 
 r.oninput = () => {
     rgb(r);
@@ -45,6 +61,10 @@ b.oninput = () => {
 
 gris.onclick = () => {
     grises();
+}
+
+color.onclick = () => {
+    colores();
 }
 
 function rgb () {
@@ -103,7 +123,19 @@ function grises () {
     ctx.putImageData(imgData, 0, 0);
 }
 
+function colores () {
+    canvas.width = img.width;
+    canvas.height = img.height;
 
+    ctx.drawImage(img, 0,0);
+
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data;
+
+    ctx.putImageData(imgData, 0, 0);
+}
 
 
 console.log("Fin...");
