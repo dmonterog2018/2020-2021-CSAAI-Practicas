@@ -24,14 +24,14 @@ const botonimagen2 = document.getElementById('botonimagen2');
 //-- que esté totalmente cargada
 img.onload = function () {
 
-  console.log("Imagen cargada");
+  
   //-- Se establece como tamaño del canvas el mismo
   //-- que el de la imagen original
   canvas.width = img.width;
   canvas.height = img.height;
 
   ctx.drawImage(img, 0,0);
- 
+  console.log("Imagen cargada");
 
 };
 
@@ -142,7 +142,7 @@ function colores () {
     let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
     //-- Obtener el array con todos los píxeles
-    let data = imgData.data;
+    //let data = imgData.data;
 
     ctx.putImageData(imgData, 0, 0);
 }
