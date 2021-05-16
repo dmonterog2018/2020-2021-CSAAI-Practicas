@@ -12,6 +12,7 @@ background-image: url('fondocar.jpg');
 
 .div1 {
     float: left;
+    margin-top: 1cm;
 }
 
 .div2 {
@@ -61,6 +62,41 @@ img {
 }
 
 #r {
-    text-align: center;
+    margin-left: 1cm;
     
+}
+
+#g {
+    margin-left: 1cm;
+}
+
+#b {
+    margin-left: 1cm;
+}
+
+#botonimagen1 {
+    font-family: "Lemon Friday";
+    font-size: 14px;
+    border: solid;
+    border-color: black;
+    border-width: 0.1cm;
+}
+
+
+#botonimagen2 {
+    font-family: "Lemon Friday";
+    font-size: 14px;
+    border: solid;
+    border-color: black;
+    border-width: 0.1cm;
+}
+
+
+.boton {
+    font-family: "Lemon Friday";
+    font-size: 14px;
+    margin-left: 0.8cm;
+    border: solid;
+    border-color: black;
+    border-width: 0.1cm;
 }

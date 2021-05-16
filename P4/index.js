@@ -12,6 +12,8 @@ const g_value = document.getElementById('gvalue');
 const b_value = document.getElementById('bvalue');
 const gris = document.getElementById('gris');
 const color = document.getElementById('color');
+const negativ = document.getElementById('negativo');
+const vint = document.getElementById('vintage');
 
 const botonimagen1 = document.getElementById('botonimagen1');
 const botonimagen2 = document.getElementById('botonimagen2');
@@ -65,6 +67,14 @@ gris.onclick = () => {
 
 color.onclick = () => {
     colores();
+}
+
+negativ.onclick = () => {
+    negativo();
+}
+
+vint.onclick = () => {
+    vintage();
 }
 
 function rgb () {
@@ -137,5 +147,48 @@ function colores () {
     ctx.putImageData(imgData, 0, 0);
 }
 
+function negativo () {
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0,0);
+
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data;
+
+    for (let i=0; i< data.length; i+=4) {
+        data[i] = 255 - data[i];
+        data[i + 1] = 255 - data[i + 1];
+        data[i + 2] = 255 - data[i + 2];
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+
+}
+
+function vintage () {
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0,0);
+
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    //-- Obtener el array con todos los píxeles
+    let data = imgData.data;
+
+    for (let i=0; i< data.length; i+=4) {
+        data[i] = (data[i]*.393) + (data[i + 1]*.769) + (data[i + 2]*.189);
+        data[i + 1] = (data[i]*.349) + (data[i + 1]*.686)+ (data[i + 2]*.168);
+        data[i + 2] = (data[i]*.272) + (data[i + 1]*.543)+ (data[i + 2]*.131);
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+
+}
 
 console.log("Fin...");
