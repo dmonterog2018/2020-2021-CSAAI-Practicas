@@ -1,0 +1,43 @@
+
+@font-face {
+    font-family: "Lemon Friday";
+    src: url(LemonFriday.ttf);
+    
+}
+
+body {
+    background-image: url('fondo1.jpg');
+}
+
+#directo {
+    margin-left: 15cm;
+    border: solid;
+    border-width: 0.2cm;
+    border-color: black;
+
+}
+
+#video1 {
+    float:left;
+    margin-top: 1cm;
+    margin-left: 12cm;
+    border: solid;
+    border-width: 0.2cm;
+    border-color: black;
+}
+
+#video2 {
+    float: right;
+    margin-top: 1cm;
+    margin-right: 17cm;
+    border: solid;
+    border-width: 0.2cm;
+    border-color: black;
+}
+
+.boton {
+    font-family:"Lemon Friday";
+    font-size: 15px;
+    float:right;
+    margin-right: 26.8cm;
+}
