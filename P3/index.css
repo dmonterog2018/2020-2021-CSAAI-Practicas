@@ -1,5 +1,11 @@
+@font-face {
+    font-family: "Lemon Friday";
+    src: url(LemonFriday.ttf);
+    
+}
+
 body {
-    background-image: url("fondo3.gif") ;
+    background-image: url("fondo5.gif") ;
 }
 
 
@@ -12,5 +18,26 @@ body {
     margin: 5px;
     margin-left: 17.5cm;
     margin-top: 5cm;
-    }
 
+}
+
+
+#repetir {
+    margin-top: 5cm;
+    margin-left: 24cm;
+    font-family: "Lemon Friday";
+    font-size: 15px;
+    background-color: aqua;
+
+}
+
+
+#perder {
+    margin-top: 1cm;
+    margin-left: 18cm;
+}
+
+#ganar {
+    margin-top: 1cm;
+    margin-left: 20.5cm;
+}

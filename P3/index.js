@@ -38,13 +38,36 @@ var velocidadx = 0;  // Velocidad en el eje X de la bola inicalizada en 0
 var velocidady = 0; // Velocidad en el eje Y de la bola inicalizada en 0
 //-- Creación de los ladrillos. La estructura se almacena 
 //-- en el objeto ladrillos, que inicialmente está vacío
+var vidas = 3;
+var score = 0;
 const ladrillos = [];
+
+
+for (let i = 1; i < LADRILLO.F; i++) {
+  ladrillos[i] = [];  //-- Inicializar la fila. Las filas son a su vez Arrays que inicialmente están vacíos
+
+  //-- Recorrer las C columnas de la fila i. La variable j toma valores de 0 hasta C-1 (numero de columnas)
+  for (let j = 0; j < LADRILLO.C; j++) {
+
+    //-- Calcular valores para el ladrillo de la fila i y la columna j
+    //-- Algunos valores son constates. Otros depeden de i y j
+    ladrillos[i][j] = {
+      x: (LADRILLO.w + LADRILLO.padding) * j,
+      y: (LADRILLO.h + LADRILLO.padding) * i,
+      w: LADRILLO.w,
+      h: LADRILLO.h,
+      padding: LADRILLO.padding,
+      visible: LADRILLO.visible
+    };
+  }
+}
+
 
 
 // FUNCIONES 
 // BOLA
 function drawbola() {
-  console.log("Dibujando bola....");
+  
   ctx.beginPath();
   ctx.arc(inicialbolax, inicialbolay, bola.radio, 0, Math.PI*2);  //Posicion de la bola(x, y), radio, radio inicial, radio final
   ctx.fillStyle = 'yellow'; // Color de la bola
@@ -53,7 +76,7 @@ function drawbola() {
 }
 // RAQUETA
 function drawraqueta() {
-  console.log("Dibujando raqueta....");
+ 
   ctx.beginPath();
   ctx.rect(inicialraquetax, inicialraquetay, raqueta.ancho, raqueta.altura); // Posicion de la raqueta (x, y), ancho y largo de la raqueta
   ctx.fillStyle = 'yellow'; // Color de la raqueta
@@ -67,56 +90,29 @@ function drawraqueta() {
 //-- Recorrer todas las filas. La variable i toma valores de 0 hasta F-1 (número de filas)
 // RAQUETA
 document.addEventListener("keydown", function (ev) {
-  var desplazamiento = 7;
+  var desplazamiento = 10;
   if(ev.key === "ArrowRight") {
     inicialraquetax +=  desplazamiento;
-    console.log("Izquierda");
+  
     if(inicialraquetax + raqueta.ancho >= canvas.width){
       inicialraquetax = 600 - raqueta.ancho;
     }
   }else if(ev.key === "ArrowLeft" ){
     inicialraquetax -= desplazamiento;
-    console.log("Izquierda");
+ 
     if (inicialraquetax < 0){
       inicialraquetax = 0;
     }
   }else if (ev.key === " "){
     velocidadx = 3;
     velocidady = 3;
-  console.log("Espacio");
+ 
   }
   
   
 });
 
-
-
-function main () {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawbola(); // Llamamos a la funcion para que nos dibuje la bola
-  drawraqueta(); // Llamamos a la funcion para que nos dibuje la raqueta
-  
-  for (let i = 0; i < LADRILLO.F; i++) {
-    ladrillos[i] = [];  //-- Inicializar la fila. Las filas son a su vez Arrays que inicialmente están vacíos
-  
-    //-- Recorrer las C columnas de la fila i. La variable j toma valores de 0 hasta C-1 (numero de columnas)
-    for (let j = 0; j < LADRILLO.C; j++) {
-  
-      //-- Calcular valores para el ladrillo de la fila i y la columna j
-      //-- Algunos valores son constates. Otros depeden de i y j
-      ladrillos[i][j] = {
-        x: (LADRILLO.w + LADRILLO.padding) * j,
-        y: (LADRILLO.h + LADRILLO.padding) * i,
-        w: LADRILLO.w,
-        h: LADRILLO.h,
-        padding: LADRILLO.padding,
-        visible: LADRILLO.visible
-      };
-    }
-  }
-  
-  
-  
+function dibujarladrillos () {
   //-- Dibujar ladrillos
   for (let i = 1; i < LADRILLO.F; i++) {
       for (let j = 0; j < LADRILLO.C; j++) {
@@ -131,7 +127,63 @@ function main () {
         }
       }
   }
+  
+}
 
+function destruir () {
+  for (let i = 1; i < LADRILLO.F; i++) {
+    for (let j = 0; j <  LADRILLO.C; j++) {
+      if (ladrillos[i][j].visible) {
+        if ((inicialbolay >= ladrillos[i][j].y) && (inicialbolay <= (ladrillos[i][j].y + 30))){
+          if ((inicialbolax >= ladrillos[i][j].x) && (inicialbolax <= (ladrillos[i][j].x + 43))){
+              
+        
+            ladrillos[i][j].visible = false;
+            console.log("roto");
+            velocidady = -velocidady;
+            score += 1;
+            
+          }
+         
+        }
+      }
+    }
+  }
+
+}
+
+function mostrarvidas () {
+
+  ctx.fillStyle = "white";
+  ctx.fillText("Vidas: " + vidas, 540, 18);
+  ctx.font = "15px Arial";
+
+}
+
+function mostrarpuntuacion () {
+
+  ctx.fillStyle = "white";
+  ctx.fillText("Puntuación: " + score, 0, 18);
+  ctx.font = "15px Arial";
+
+
+
+}
+
+
+function main () {
+  document.getElementById('perder').style.display = "none"; // No mostrara la pantalla de perder al inicio 
+  document.getElementById('repetir').style.display= "none"; // Solo mostraremos el boton de emepzar de nuevo si perdemos
+  document.getElementById('ganar').style.display = "none"; // No monstramos la pantalla de ganar
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawbola(); // Llamamos a la funcion para que nos dibuje la bola
+  drawraqueta(); // Llamamos a la funcion para que nos dibuje la raqueta
+  dibujarladrillos();
+  destruir();
+  mostrarvidas();  
+  mostrarpuntuacion();
+
+  
   // MOVIMIENTO DE LA BOLA
   if (inicialbolax + velocidadx > canvas.width - bola.radio || inicialbolax + velocidadx < bola.radio) {
     velocidadx = -velocidadx;
@@ -150,16 +202,51 @@ function main () {
   
   }
 
+  /// Cuando la bola toca el suelo 
+
   if (inicialbolay + velocidady > canvas.height) {
     inicialbolax = canvas.width/2; 
     inicialbolay = canvas.height -20;
     velocidadx = 0;
     velocidady = 0;
+    inicialraquetax = (canvas.width - raqueta.ancho)/2; 
+    inicialraquetay = canvas.height - raqueta.altura; 
+    vidas = vidas - 1;
   }
 
-inicialbolax += velocidadx;
-inicialbolay += velocidady;
-requestAnimationFrame(main);
+
+
+  if (vidas == 0) {
+    inicialbolax = canvas.width/2; 
+    inicialbolay = canvas.height -20;
+    velocidadx = 0;
+    velocidady = 0;
+    inicialraquetax = (canvas.width - raqueta.ancho)/2; 
+    inicialraquetay = canvas.height - raqueta.altura; 
+    document.getElementById('canvas').style.display = "none"; // Desabilitamos el canvas para poder poner la imagen
+    document.getElementById('perder').style.display = "block"; // Mostraremos la imagen de que hemos perdido
+    document.getElementById('repetir').style.display= ""; // mostramos el bton para poder vbolver a jugar
+
+  }
+
+
+ if (score == 65) {
+  inicialbolax = canvas.width/2; 
+    inicialbolay = canvas.height -20;
+    velocidadx = 0;
+    velocidady = 0;
+    inicialraquetax = (canvas.width - raqueta.ancho)/2; 
+    inicialraquetay = canvas.height - raqueta.altura; 
+    document.getElementById('canvas').style.display = "none"; // Desabilitamos el canvas para poder poner la imagen
+    document.getElementById('ganar').style.display = "block"; // Mostramos la imagen de que hemos ganado
+    document.getElementById('repetir').style.display= ""; // Mostramos el bton para poder volver a jugar
+
+
+
+  }
+  inicialbolax += velocidadx;
+  inicialbolay += velocidady;
+  requestAnimationFrame(main);
     
 }
 
