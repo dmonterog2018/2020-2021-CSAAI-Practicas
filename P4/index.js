@@ -24,7 +24,9 @@ const botonimagen2 = document.getElementById('botonimagen2');
 //-- que esté totalmente cargada
 img.onload = function () {
 
-  
+    r.style.display = "none";
+    g.style.display = "none";
+    b.style.display = "none";
   //-- Se establece como tamaño del canvas el mismo
   //-- que el de la imagen original
   canvas.width = img.width;
@@ -63,18 +65,32 @@ b.oninput = () => {
 
 gris.onclick = () => {
     grises();
+    r.style.display = "none";
+    g.style.display = "none";
+    b.style.display = "none";
+    
 }
 
 color.onclick = () => {
     colores();
+    r.style.display = "inline-block";
+    g.style.display = "inline-block";
+    b.style.display = "inline-block";
+
 }
 
 negativ.onclick = () => {
     negativo();
+    r.style.display = "none";
+    g.style.display = "none";
+    b.style.display = "none";
 }
 
 vint.onclick = () => {
     vintage();
+    r.style.display = "none";
+    g.style.display = "none";
+    b.style.display = "none";
 }
 
 function rgb () {
