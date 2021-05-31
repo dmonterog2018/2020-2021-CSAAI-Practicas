@@ -1,2 +1,9 @@
  # Práctica 2
-En esta práctica he realizado una calculadora simple, en la cual actua con unicamente dos operadores, no deja utilizar mas operadores, implementa a parte alguna mejora como seria poder realizar la raiz cuadrada de un número, te permite borrar si te has equivocado a la hora de poner un número o un operador y por ultimo cuenta con la funcion ANS, que permite guardar el resultado de la última operación.
+En esta práctica he realizado una calculadora simple, la cual actua con unicamente dos operadores, no deja utilizar mas operadores. Se pueden realizar todo tipo de operaciones sin ningun problema.
+
+Mejoras:
+- Boton ANS
+- Boton de la raiz
+- Añadir el punto
+- Boton de borrado que permite borrar operaciones y numeros
+- Boton AC para volver a 0
